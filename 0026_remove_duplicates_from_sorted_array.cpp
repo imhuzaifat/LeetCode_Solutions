@@ -1,7 +1,16 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        nums.erase(std::unique(nums.begin(), nums.end()), nums.end());
-        return nums.size();
+        int read = 1, write = 1;
+        while (read < nums.size())
+        {
+            if (nums[read] != nums[read-1])
+            {
+                nums[write] = nums[read];
+                write++;
+            }
+            read++;
+        }
+        return write;
     }
 };
