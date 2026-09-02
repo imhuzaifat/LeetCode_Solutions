@@ -21,3 +21,19 @@ public:
         return uniqueNums[maxIndex];
     }
 };
+
+// OR using Moore's Algorithm
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int freq = 0, major = 0;
+        for (int val : nums)
+        {
+            if (freq == 0)      major = val;
+            if (major == val)   ++freq;
+            else                --freq;
+        }
+        return major;
+    }
+};
